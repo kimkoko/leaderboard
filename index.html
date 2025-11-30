@@ -1,170 +1,260 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>KGQA models Leaderboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGQA Models Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <h1>KGQA Leaderboard</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#leaderboard">Leaderboard</a></li>
-                <li><a href="#calculation">Calculation</a></li>
-                <li><a href="#reference">Reference</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="content">
-        <section id="about">
-            <h2>About Project</h2>
-            <p>This leaderboard is the final output from the capstone project 'Knowledge Graph Based Question Answering Leaderboard' by Kim Songi (19085436D), describing the overall rank of the knowledge graph based simple question answering models.</p>
-            <p>The final rank is calculated with the formula from Fair Benchmark for Unsupervised Node Representation (2022). The calculation process is described in the calculation section below.</p>
-        </section>
-        <section id="leaderboard">
-            <h1>KGQA models Leaderboard</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Model</th>
-                        <th>Author</th>
-                        <th>Year</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>KEQA</td>
-                        <td>Huang et al.</td>
-                        <td>2019</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>BertQA</td>
-                        <td>Han et al.</td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>BuboQA</td>
-                        <td>Mohammed et al.</td>
-                        <td>2017</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section id="calculation">
-            <h2>Calculation Process</h2>
-            <br>
-            <h3>Original Result</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th rowspan="3">Model</th>
-                        <th colspan="3">Dataset</th>
-                    </tr>
-                    <tr>
-                        <th>SimQ</th>
-                        <th>WebQSP</th>
-                        <th>FBQ</th>
-                    </tr>
-                    <tr>
-                        <th>Accuracy</th>
-                        <th>Accuracy</th>
-                        <th>Accuracy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>KEQA (2019)</td>
-                        <td>0.754</td>
-                        <td>0.651</td>
-                        <td>0.273</td>
-                    </tr>
-                    <tr>
-                        <td>BertQA</td>
-                        <td>0.744</td>
-                        <td>0.637</td>
-                        <td>0.429</td>
-                    </tr>
-                    <tr>
-                        <td>BuboQA</td>
-                        <td>0.745</td>
-                        <td>0.622</td>
-                        <td>0.373</td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <br>
-            <h3>Ranked Result</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th rowspan="3">Model</th>
-                        <th colspan="3">Dataset</th>
-                    </tr>
-                    <tr>
-                        <th>SimQ</th>
-                        <th>WebQSP</th>
-                        <th>FBQ</th>
-                    </tr>
-                    <tr>
-                        <th>Accuracy</th>
-                        <th>Accuracy</th>
-                        <th>Accuracy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>KEQA (2019)</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>BertQA</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>BuboQA</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <h3>Following process is the calculation step to produce the overall rank. The lower value means the higher rank. </h3>
-            <h4>(Numerical values of log: log 1 = 0, log 2 = 0.301, log 3 = 0.447)</h4>
-            <ul>
-                <li><pre>KEQA = log 1 + log 1 + log 3 = 0.447           Rank 1</pre></li>
-                <li><pre>BertQA = log 3 + log 2 + log 1 = 0.748         Rank 2</pre></li>
-                <li><pre>BuboQA = log 2 + log 3 + log 2 = 1.049         Rank 3</pre></li>
-            </ul>
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="logo">
+                <h1>KGQA Leaderboard</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#calculation">Methodology</a></li>
+                    <li><a href="#reference">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main>
+        <section id="about" class="section-about">
+            <div class="container">
+                <h2 class="section-title">About Project</h2>
+                <div class="card">
+                    <p>This leaderboard represents the culmination of the capstone project <strong>'Knowledge Graph Based Question Answering Leaderboard'</strong> by Kim Songi (19085436D). It provides a comprehensive ranking of simple question answering models based on knowledge graphs.</p>
+                    <p>The final rankings are derived using the formula established in the <em>Fair Benchmark for Unsupervised Node Representation (2022)</em>. This approach ensures a rigorous and standardized evaluation of model performance across multiple datasets.</p>
+                </div>
+            </div>
+        </section>
 
+        <section id="leaderboard" class="section-leaderboard">
+            <div class="container">
+                <h2 class="section-title">KGQA Models Leaderboard</h2>
+                <div class="table-wrapper">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Model</th>
+                                <th>Author</th>
+                                <th>Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="rank-1">
+                                <td><span class="rank-badge gold">1</span></td>
+                                <td><strong>KEQA</strong></td>
+                                <td>Huang et al.</td>
+                                <td>2019</td>
+                            </tr>
+                            <tr class="rank-2">
+                                <td><span class="rank-badge silver">2</span></td>
+                                <td><strong>BertQA</strong></td>
+                                <td>Han et al.</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr class="rank-3">
+                                <td><span class="rank-badge bronze">3</span></td>
+                                <td><strong>BuboQA</strong></td>
+                                <td>Mohammed et al.</td>
+                                <td>2017</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
-        <br>
-        <br>
-        <section id="reference">
-            <h2>Reference</h2>
-            <p>1. X. Huang, J. Zhang, D. Li, and P. Li, “Knowledge Graph Embedding Based Question Answering,” in Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining, pp. 2724–113, doi: 10.1145/3289600.3290956.</p>
-            <p>2. N. Han, H. Noji, K. Hayashi, H. Takamura, and Y. Miyao, “Probing Simple Factoid Question Answering Based on Linguistic Knowledge,” Journal of Natural Language Processing, vol. 28, no. 4, pp. 938–964, 2021, doi: 10.5715/jnlp.28.938. </p>
-            <p>3. S. Mohammed, P. Shi, and J. Lin, “Strong Baselines for Simple Question Answering over Knowledge Graphs with and without Neural Networks,” 2017, doi: 10.48550/arxiv.1712.01969. </p>
-            <p>4. Z. Guo et al., “Fair Benchmark for Unsupervised Node Representation Learning,” Algorithms, vol. 15, no. 10, p. 379–, 2022, doi: 10.3390/a15100379. </p>
-            <p>5. A. Bordes, N. Usunier, S. Chopra, and J. Weston, “Large-scale Simple Question Answering with Memory Networks,” 2015, doi: 10.48550/arxiv.1506.02075. </p>
-            <p>6. J. Berant, A. Chou, R. Frostig, and P. Liang, “Semantic parsing on freebase from question-answer pairs,” 2013, in 2013 conference on empirical methods in natural language processing, 2013, pp. 1533-1544. </p>
-            <p>7. K. Jiang, D. Wu, and H. Jiang, “FreebaseQA: A New Factoid QA Data Set Matching Trivia-Style Question-Answer Pairs with Freebase,” 2019, in NAACL-HLT (1), 2019, pp. 318-323</p>
-            <p>8. N. Han, G. Topić, H. Noji, H. Takamura, and Y. Miyao, “An empirical analysis of existing systems and datasets toward general simple question answering,” 2020, in 28th International Conference on Computational Linguistics, 2020, pp. 5321-5334. </p>
+
+        <section id="calculation" class="section-calculation">
+            <div class="container">
+                <h2 class="section-title">Calculation Methodology</h2>
+                
+                <div class="calculation-grid">
+                    <div class="calc-block">
+                        <h3>Original Performance Metrics</h3>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Model</th>
+                                        <th colspan="3">Dataset Accuracy</th>
+                                    </tr>
+                                    <tr>
+                                        <th>SimQ</th>
+                                        <th>WebQSP</th>
+                                        <th>FBQ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>KEQA (2019)</td>
+                                        <td>0.754</td>
+                                        <td>0.651</td>
+                                        <td>0.273</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BertQA</td>
+                                        <td>0.744</td>
+                                        <td>0.637</td>
+                                        <td>0.429</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BuboQA</td>
+                                        <td>0.745</td>
+                                        <td>0.622</td>
+                                        <td>0.373</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="calc-block">
+                        <h3>Ranked Performance</h3>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Model</th>
+                                        <th colspan="3">Dataset Rank</th>
+                                    </tr>
+                                    <tr>
+                                        <th>SimQ</th>
+                                        <th>WebQSP</th>
+                                        <th>FBQ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>KEQA (2019)</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BertQA</td>
+                                        <td>3</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BuboQA</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-section card">
+                    <h3>Overall Rank Calculation</h3>
+                    <p>The overall rank is determined by the sum of the logarithms of the individual ranks. A lower score indicates a better performance.</p>
+                    <div class="formula-note">
+                        <small>Log values used: log(1) = 0, log(2) ≈ 0.301, log(3) ≈ 0.447</small>
+                    </div>
+                    <ul class="calculation-steps">
+                        <li>
+                            <span class="model-name">KEQA</span>
+                            <span class="formula">log(1) + log(1) + log(3) = <strong>0.447</strong></span>
+                            <span class="final-rank">Rank 1</span>
+                        </li>
+                        <li>
+                            <span class="model-name">BertQA</span>
+                            <span class="formula">log(3) + log(2) + log(1) = <strong>0.748</strong></span>
+                            <span class="final-rank">Rank 2</span>
+                        </li>
+                        <li>
+                            <span class="model-name">BuboQA</span>
+                            <span class="formula">log(2) + log(3) + log(2) = <strong>1.049</strong></span>
+                            <span class="final-rank">Rank 3</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
-    </div>
-    <div class="container">
-        
-    </div>
+
+        <section id="reference" class="section-reference">
+            <div class="container">
+                <h2 class="section-title">References & Proven Knowledge</h2>
+                <div class="references-list">
+                    <div class="reference-item">
+                        <span class="ref-number">1.</span>
+                        <div class="ref-content">
+                            <p>X. Huang, J. Zhang, D. Li, and P. Li, "Knowledge Graph Embedding Based Question Answering," in <em>Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining</em>, pp. 105-113, 2019.</p>
+                            <a href="https://doi.org/10.1145/3289600.3290956" target="_blank" class="ref-link">View Paper (DOI)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">2.</span>
+                        <div class="ref-content">
+                            <p>N. Han, H. Noji, K. Hayashi, H. Takamura, and Y. Miyao, "Probing Simple Factoid Question Answering Based on Linguistic Knowledge," <em>Journal of Natural Language Processing</em>, vol. 28, no. 4, pp. 938–964, 2021.</p>
+                            <a href="https://doi.org/10.5715/jnlp.28.938" target="_blank" class="ref-link">View Paper (DOI)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">3.</span>
+                        <div class="ref-content">
+                            <p>S. Mohammed, P. Shi, and J. Lin, "Strong Baselines for Simple Question Answering over Knowledge Graphs with and without Neural Networks," in <em>Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics</em>, 2018.</p>
+                            <a href="https://aclanthology.org/N18-2047/" target="_blank" class="ref-link">View Paper (ACL Anthology)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">4.</span>
+                        <div class="ref-content">
+                            <p>Z. Guo et al., "Fair Benchmark for Unsupervised Node Representation Learning," <em>Algorithms</em>, vol. 15, no. 10, p. 379, 2022.</p>
+                            <a href="https://doi.org/10.3390/a15100379" target="_blank" class="ref-link">View Paper (DOI)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">5.</span>
+                        <div class="ref-content">
+                            <p>A. Bordes, N. Usunier, S. Chopra, and J. Weston, "Large-scale Simple Question Answering with Memory Networks," 2015.</p>
+                            <a href="https://arxiv.org/abs/1506.02075" target="_blank" class="ref-link">View Paper (ArXiv)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">6.</span>
+                        <div class="ref-content">
+                            <p>J. Berant, A. Chou, R. Frostig, and P. Liang, "Semantic parsing on freebase from question-answer pairs," in <em>Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing</em>, 2013, pp. 1533-1544.</p>
+                            <a href="https://aclanthology.org/D13-1160/" target="_blank" class="ref-link">View Paper (ACL Anthology)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">7.</span>
+                        <div class="ref-content">
+                            <p>K. Jiang, D. Wu, and H. Jiang, "FreebaseQA: A New Factoid QA Data Set Matching Trivia-Style Question-Answer Pairs with Freebase," in <em>NAACL-HLT (1)</em>, 2019, pp. 318-323.</p>
+                            <a href="https://aclanthology.org/N19-1028/" target="_blank" class="ref-link">View Paper (ACL Anthology)</a>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <span class="ref-number">8.</span>
+                        <div class="ref-content">
+                            <p>N. Han, G. Topić, H. Noji, H. Takamura, and Y. Miyao, "An empirical analysis of existing systems and datasets toward general simple question answering," in <em>Proceedings of the 28th International Conference on Computational Linguistics</em>, 2020, pp. 5321-5334.</p>
+                            <a href="https://aclanthology.org/2020.coling-main.464/" target="_blank" class="ref-link">View Paper (ACL Anthology)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KGQA Leaderboard Project. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
